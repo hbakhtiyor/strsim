@@ -1,3 +1,5 @@
+[![GoDoc](https://godoc.org/github.com/hbakhtiyor/strsim?status.svg)](https://godoc.org/github.com/hbakhtiyor/strsim) [![Build Status](https://travis-ci.org/hbakhtiyor/strsim.svg?branch=master)](https://travis-ci.org/hbakhtiyor/strsim) [![Go Report Card](https://goreportcard.com/badge/github.com/hbakhtiyor/strsim)](https://goreportcard.com/report/github.com/hbakhtiyor/strsim)
+
 strsim
 =================
 
@@ -7,11 +9,11 @@ Finds degree of similarity between two strings, based on [Dice's Coefficient](ht
 
 * [Usage](#usage)
 * [API](#api)
-    * [Compare(a, b string) float64](#comparea-astring-float64)
+    * [Compare(a, b string) float64](#comparea-b-string-float64)
         * [Arguments](#arguments)
         * [Returns](#returns)
         * [Examples](#examples)
-    * [FindBestMatch(s string, targets []string) *MatchResult](#findbestmatchstring-targets)
+    * [FindBestMatch(s string, targets []string) *MatchResult](#findbestmatchs-string-targets-string-matchresult)
         * [Arguments](#arguments-1)
         * [Returns](#returns-1)
         * [Examples](#examples-1)
@@ -92,16 +94,17 @@ strsim.FindBestMatch("Olive-green table for sale, in extremely good condition.",
   "Wanted: mountain bike with at least 21 gears.",
 });
 // → 
-{ Candidates:
-   [ { Target: "For sale: green Subaru Impreza, 210,000 miles",
-       Score: 0.2558139534883721 },
-     { Target: "For sale: table in very good condition, olive green in colour.",
-       Score: 0.6060606060606061 },
-     { Target: "Wanted: mountain bike with at least 21 gears.",
-       Score: 0.1411764705882353 } ],
-  BestMatch:
-   { Target: "For sale: table in very good condition, olive green in colour.",
-     Score: 0.6060606060606061 },
+MatchResult {
+  Candidates: []Match {
+    { Target: "For sale: green Subaru Impreza, 210,000 miles",
+      Score: 0.2558139534883721 },
+    { Target: "For sale: table in very good condition, olive green in colour.",
+      Score: 0.6060606060606061 },
+    { Target: "Wanted: mountain bike with at least 21 gears.",
+      Score: 0.1411764705882353 } },
+  BestMatch: Match
+    { Target: "For sale: table in very good condition, olive green in colour.",
+      Score: 0.6060606060606061 },
   BestMatchIndex: 1 
 }
 ```
