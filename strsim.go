@@ -2,6 +2,7 @@ package strsim
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 	"unicode"
 )
@@ -47,11 +48,19 @@ type Match struct {
 	Score  float64
 }
 
-// MatchResult contains all candidates, a best match with index.
+// MatchResult contains all matches, a best match with index.
 type MatchResult struct {
-	Candidates     []*Match
+	Matches        []*Match
 	BestMatch      *Match
 	BestMatchIndex int
+}
+
+// SortedByScore sorts matches ascending by their scores.
+func (mr *MatchResult) SortedByScore() {
+	sort.Slice(mr.Matches, func(a, b int) bool {
+		return mr.Matches[a].Score > mr.Matches[b].Score
+	})
+	mr.BestMatchIndex = 0
 }
 
 // FindBestMatch compares s against each string in targets.
@@ -60,20 +69,20 @@ func FindBestMatch(s string, targets []string) (*MatchResult, error) {
 		return nil, fmt.Errorf("targets parameter need at least one element")
 	}
 
-	candidates := make([]*Match, 0, len(targets))
+	matches := make([]*Match, 0, len(targets))
 	bestMatchIndex := 0
 
 	for i, t := range targets {
 		score := Compare(s, t)
-		candidates = append(candidates, &Match{t, score})
-		if score > candidates[bestMatchIndex].Score {
+		matches = append(matches, &Match{t, score})
+		if score > matches[bestMatchIndex].Score {
 			bestMatchIndex = i
 		}
 	}
 
-	bestMatch := candidates[bestMatchIndex]
+	bestMatch := matches[bestMatchIndex]
 
-	return &MatchResult{candidates, bestMatch, bestMatchIndex}, nil
+	return &MatchResult{matches, bestMatch, bestMatchIndex}, nil
 }
 
 func stripSpaces(str string) string {

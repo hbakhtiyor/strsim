@@ -84,7 +84,7 @@ Compares `s` against each string in `targets`.
 2. targets ([]string): Each string in this array will be matched against the main string.
 
 ##### Returns
-(MatchResult): An object with a `Candidates` field, which gives a similarity score for each target string, a `BestMatch` field, which specifies which target string was most similar to the main string, and a `BestMatchIndex` field, which specifies the index of the `BestMatch` in the `targets` array.
+(MatchResult): An object with a `Matches` field, which gives a similarity score for each target string, a `BestMatch` field, which specifies which target string was most similar to the main string, and a `BestMatchIndex` field, which specifies the index of the `BestMatch` in the `targets` array.
 
 ##### Examples
 ```go
@@ -95,7 +95,7 @@ strsim.FindBestMatch("Olive-green table for sale, in extremely good condition.",
 });
 // → 
 MatchResult {
-  Candidates: []Match {
+  Matches: []Match {
     { Target: "For sale: green Subaru Impreza, 210,000 miles",
       Score: 0.2558139534883721 },
     { Target: "For sale: table in very good condition, olive green in colour.",
