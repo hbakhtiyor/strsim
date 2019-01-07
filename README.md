@@ -1,4 +1,4 @@
-[![GoDoc](https://godoc.org/github.com/hbakhtiyor/strsim?status.svg)](https://godoc.org/github.com/hbakhtiyor/strsim) [![Build Status](https://travis-ci.org/hbakhtiyor/strsim.svg?branch=master)](https://travis-ci.org/hbakhtiyor/strsim) [![Go Report Card](https://goreportcard.com/badge/github.com/hbakhtiyor/strsim)](https://goreportcard.com/report/github.com/hbakhtiyor/strsim)
+[![GoDoc](https://godoc.org/github.com/hbakhtiyor/strsim?status.svg)](https://godoc.org/github.com/hbakhtiyor/strsim) [![Build Status](https://travis-ci.com/hbakhtiyor/strsim.svg?branch=master)](https://travis-ci.org/hbakhtiyor/strsim) [![Go Report Card](https://goreportcard.com/badge/github.com/hbakhtiyor/strsim)](https://goreportcard.com/report/github.com/hbakhtiyor/strsim)
 
 strsim
 =================
