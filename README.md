@@ -109,5 +109,24 @@ MatchResult {
 }
 ```
 
+## Benchmark
+
+```
+BenchmarkCompare-4         	   20000	     82479 ns/op	   15921 B/op	      51 allocs/op
+BenchmarkFindBestMatch-4   	   30000	     60800 ns/op	   11707 B/op	      41 allocs/op
+BenchmarkSortedByScore-4   	 2000000	       638 ns/op	     128 B/op	       4 allocs/op
+```
+
+#### Hardware used
+
+* Intel® Core™ i3-2310M CPU @ 2.10GHz × 4
+* 4Gb RAM
+
+#### Version
+
+* Go 1.11.2
+* Ubuntu 18.04.01 LTS x86_64 OS
+* 4.15.0-39-generic kernel
+
 ## Credit
 https://github.com/aceakash/string-similarity
