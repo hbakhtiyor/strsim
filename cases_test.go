@@ -68,3 +68,51 @@ var testCases2 = []struct {
 		nil,
 	},
 }
+
+var testCases3 = []struct {
+	actual   *MatchResult
+	expected *MatchResult
+}{
+	{
+		&MatchResult{
+			[]*Match{
+				{"mailed", 0.4},
+				{"edward", 0.2},
+				{"sealed", 0.8},
+				{"theatre", 0.36363636363636365},
+			},
+			&Match{"sealed", 0.8},
+			2,
+		},
+		&MatchResult{
+			[]*Match{
+				{"sealed", 0.8},
+				{"mailed", 0.4},
+				{"theatre", 0.36363636363636365},
+				{"edward", 0.2},
+			},
+			&Match{"sealed", 0.8},
+			0,
+		},
+	},
+	{
+		&MatchResult{
+			[]*Match{
+				{"For sale: green Subaru Impreza, 210,000 miles", 0.2558139534883721},
+				{"For sale: table in very good condition, olive green in colour.", 0.6060606060606061},
+				{"Wanted: mountain bike with at least 21 gears.", 0.1411764705882353},
+			},
+			&Match{"For sale: table in very good condition, olive green in colour.", 0.6060606060606061},
+			1,
+		},
+		&MatchResult{
+			[]*Match{
+				{"For sale: table in very good condition, olive green in colour.", 0.6060606060606061},
+				{"For sale: green Subaru Impreza, 210,000 miles", 0.2558139534883721},
+				{"Wanted: mountain bike with at least 21 gears.", 0.1411764705882353},
+			},
+			&Match{"For sale: table in very good condition, olive green in colour.", 0.6060606060606061},
+			0,
+		},
+	},
+}

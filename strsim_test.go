@@ -28,6 +28,16 @@ func TestFindBestMatch(t *testing.T) {
 	}
 }
 
+func TestSortedByScore(t *testing.T) {
+	for _, test := range testCases3 {
+		observed := test.actual
+		observed.SortedByScore()
+		if !reflect.DeepEqual(observed, test.expected) {
+			t.Fatalf("SortedByScore() = %+v, want %+v", observed, test.expected)
+		}
+	}
+}
+
 func BenchmarkCompare(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		for _, test := range testCases1 {
@@ -36,10 +46,19 @@ func BenchmarkCompare(b *testing.B) {
 	}
 }
 
-func BenchmarkBestMatch(b *testing.B) {
+func BenchmarkFindBestMatch(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		for _, test := range testCases2 {
 			FindBestMatch(test.s, test.targets)
+		}
+	}
+}
+
+func BenchmarkSortedByScore(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		for _, test := range testCases3 {
+			observed := test.actual
+			observed.SortedByScore()
 		}
 	}
 }
