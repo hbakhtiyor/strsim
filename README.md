@@ -17,6 +17,9 @@ Finds degree of similarity between two strings, based on [Dice's Coefficient](ht
         * [Arguments](#arguments-1)
         * [Returns](#returns-1)
         * [Examples](#examples-1)
+* [Benchmark](#benchmark)
+   * [Hardware used](#hardware-used)
+   * [Version](#version)
 * [Credit](#credit)
 
 
@@ -117,12 +120,12 @@ BenchmarkFindBestMatch-4   	   30000	     60800 ns/op	   11707 B/op	      41 all
 BenchmarkSortedByScore-4   	 2000000	       638 ns/op	     128 B/op	       4 allocs/op
 ```
 
-#### Hardware used
+##### Hardware used
 
 * Intel® Core™ i3-2310M CPU @ 2.10GHz × 4
 * 4Gb RAM
 
-#### Version
+##### Version
 
 * Go 1.11.2
 * Ubuntu 18.04.01 LTS x86_64 OS
